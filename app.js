@@ -1,14 +1,17 @@
 const express = require("express");
-const dataBase = require("./database")
+const user = require ("./routes/user") //for navigating to the user route
 const port = 8888;
 const app = express();
 
-queries = dataBase.createUser;
+
 
 app.use(express.json()); //This is responsible for getting access from the JSON file you send through the BODY of your website.
 app.use(express.static("public")); // Connection to my public assets. This includes HTMLs.
 app.use(express.urlencoded({ extended: true })); // This is for accessing the  URL? not so sure.
 app.set("view engine", "ejs");
+
+
+app.use("/user", user);
 
 
 
@@ -18,9 +21,8 @@ app.get("/", (req, res) => {
    res.render("index");
 });
 
-app.get("/user/register",(req,res)=>{
 
-})
+
 
 //These are for checking whether the server can connect to the PORT
 const serverListen = app.listen(port, () => {

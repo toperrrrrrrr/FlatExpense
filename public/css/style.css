@@ -81,9 +81,15 @@ body {
    bottom: 0px;
    right: 0px;
    margin: 50px;
-   background-color: #e5eec1;
+   background-color: #344563;
    border-radius: 40px;
    border-style: hidden;
-   padding: 10px;
+   padding: 15px;
    font-size: 15px;
+   color: #FF8B00;
+}
+
+.returnhome:hover{
+   background-color: #005eff;
+   color: #A5ADBA;
 }
