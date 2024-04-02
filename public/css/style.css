@@ -1,3 +1,4 @@
+
 :root {
    /* background dark */
    --neutral-bg: #1c1c1e;
@@ -36,7 +37,7 @@ body {
    margin-top: 30px;
 }
 
-/* Error 404 Layout */
+/* Error 404 Layout
 
 .fourofour {
    background-color: #ff991f;
@@ -92,4 +93,4 @@ body {
 .returnhome:hover{
    background-color: #005eff;
    color: #A5ADBA;
-}
+} */

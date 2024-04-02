@@ -11,15 +11,15 @@ currentUsers.textContent = currentUser;
 
 // This is responsible for checking if the day is AM or PM//
 function checkAmPm() {
-   var currenttime = new Date();
-   var currnetMin = currenttime.getMinutes();
-   var currentHour = parseInt(currenttime.getHours());
+   var currentTime = new Date();
+   var currentMin = currentTime.getMinutes();
+   var currentHour = parseInt(currentTime.getHours());
    var timeIndicator = "";
 
    function makeit12() {
-      if (currentHour === 12){
-         currentHour = 12
-      }else{
+      if (currentHour === 12) {
+         currentHour = 12;
+      } else {
          currentHour -= 12;
       }
    }
@@ -37,17 +37,17 @@ function checkAmPm() {
       timeIndicator = "AM";
    }
 
-   if (currnetMin <= 9) {
-      currnetMin = "0" + currnetMin.toString();
+   if (currentMin <= 9) {
+      currentMin = "0" + currentMin.toString();
    }
 
    curTime.textContent =
       currentHour.toString() +
       ":" +
-      currnetMin +
+      currentMin +
       " " +
       timeIndicator.toLowerCase();
-   curDate.textContent = currenttime.toLocaleDateString();
+   curDate.textContent = currentTime.toLocaleDateString();
 }
 
 checkAmPm();
@@ -58,3 +58,5 @@ setInterval(checkAmPm, 1000);
 balance.textContent = initialBal;
 usersList.textContent = usersnames;
 foods.textContent = foodslist;
+
+

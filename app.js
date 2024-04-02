@@ -2,13 +2,13 @@ const express = require("express");
 const user = require ("./routes/user") //for navigating to the user route
 const port = 8888;
 const app = express();
-
-
+const path = require('path');
 
 app.use(express.json()); //This is responsible for getting access from the JSON file you send through the BODY of your website.
 app.use(express.static("public")); // Connection to my public assets. This includes HTMLs.
 app.use(express.urlencoded({ extended: true })); // This is for accessing the  URL? not so sure.
 app.set("view engine", "ejs");
+app.use('/bootstrap', express.static(path.join(__dirname, 'node_modules', 'bootstrap', 'dist')));
 
 
 app.use("/user", user);
