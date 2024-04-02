@@ -21,8 +21,17 @@ layout
 
 
 
+register 
+Should clear the data after submission to preven resubmission of data to mysql
+
 Create a chat function using realtime database functions of MYSQL or alternatively we can implement firebase for data redundancy 
 
 
 make this opensource so people can use this. 
 I believe this will be better if I make this an android app instead since my target users are android users.
+
+
+restructure the directories, separate the frontend to back end and the shared files between them. 
+
+
+
