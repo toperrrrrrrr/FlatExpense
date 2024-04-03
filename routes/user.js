@@ -1,6 +1,28 @@
 const express = require("express");
 var database = require("../database");
 const router = express.Router();
+const bodyParser = require("body-parser"); // Middleware to parse JSON request body, this is going to be used to get data from the databackend to frontend static JS
+
+router.use(bodyParser.json());
+router.use(bodyParser.urlencoded({ extended: false }));
+
+// POST endpoint to receive data from client
+router.post("/checkUser", (req, res) => {
+   const receivedData = req.body.clientData;
+   console.log("Received data from client:", receivedData);
+
+   database.checkIfUserExist(receivedData, (error, result) => {
+      if (error) {
+         res.status(500).send("Error fetching data ");
+         return;
+      }
+      console.log("user exist");
+      res.status(201).send("user exist");
+   });
+   // Send a response back to the client
+   res.json({ message: "exist" });
+   return; 
+});
 
 router.get("/", (req, res) => {
    res.send("user main loaded");

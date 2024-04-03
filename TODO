@@ -22,7 +22,11 @@ layout
 
 
 register 
-Should clear the data after submission to preven resubmission of data to mysql
+Should clear the data after submission to preven resubmission of data to mysql 
+I should also connect the static js to the backend js to pass variables around.
+// not used at the moment. I will get back to this next time to validate data before sending it to the back end
+
+
 
 Create a chat function using realtime database functions of MYSQL or alternatively we can implement firebase for data redundancy 
 
@@ -32,6 +36,7 @@ I believe this will be better if I make this an android app instead since my tar
 
 
 restructure the directories, separate the frontend to back end and the shared files between them. 
+
 
 
 
