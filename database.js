@@ -29,6 +29,7 @@ function executeQuery(query, params, callback) {
    });
 }
 
+// Start of Users queries
 function createUser(userName, userPassword, callback) {
    const query = "INSERT INTO USERS (user_name, user_password) values (?,?);";
    executeQuery(query, [userName, userPassword], callback);
@@ -44,15 +45,26 @@ function deleteAllUsers(callback) {
    executeQuery(query, [], callback);
 }
 
-//not being used at the moment. 
+//not being used at the moment.
 function checkIfUserExist(userName, callback) {
    const query = "SELECT user_name FROM users where user_name = ?";
    executeQuery(query, [userName], callback);
 }
+
+// End of Users queries
+
+//Start of Food queries
+function createFood(foodName, foodDescription, foodPrice, foodLink) {
+   const query = "INSERT INTO USERS (user_name, user_password) values (?,?);";
+   executeQuery(query, [userName, userPassword], callback);
+}
+
+// End of Food queries
 
 module.exports = {
    checkIfUserExist,
    createUser,
    outputAllUsers,
    deleteAllUsers,
+   createFood,
 };

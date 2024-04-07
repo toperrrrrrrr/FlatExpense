@@ -1,8 +1,10 @@
 const express = require("express");
-const user = require("./routes/user"); //for navigating to the user route
 const port = 8888;
 const app = express();
 const path = require("path");
+
+const user = require("./routes/user"); //for navigating to the user route
+const foods = require("./routes/foods"); //for navigating to the user route
 
 app.use(express.json()); //This is responsible for getting access from the JSON file you send through the BODY of your website.
 app.use(express.static(path.join(__dirname, 'public'))); // Connection to my public assets. This includes HTMLs.
@@ -14,6 +16,7 @@ app.use(
 );
 
 app.use("/user", user);
+app.use("/foods", foods);
 
 //Loading Main Page
 app.get("/", (req, res) => {

@@ -5,12 +5,13 @@ body {
    background-color: #5282b1;
 }
 
-.centered-form-container {
+.centered-container {
    background-color: #dfe1e5;
    width: 500px;
    height: 500px;
    border-radius: 15px;
    box-shadow: -50px 50px 25px #00000081;
+   padding: 20px;
 }
 
 .forms {
@@ -18,37 +19,35 @@ body {
 }
 
 .form-group {
-
    margin-top: 20px;
 }
 
-.btn{
+.btn {
    margin-top: 10px;
 }
 
 /* On screens that are 992px or less, set the background color to blue */
 @media screen and (max-width: 992px) {
    body {
-      background-color: blue;
+      background-color: #5c8dbe;
    }
 }
 
 /* On screens that are 600px or less, set the background color to olive */
 @media screen and (max-width: 600px) {
    body {
-      background-color: rgb(32, 134, 40);
+      background-color: #507aa3;
    }
 
    .forms {
       margin: 30px;
    }
 
-   .centered-form-container {
+   .centered-container {
       background-color: #dfe1e5;
-      width: 300px;
+      width: 400px;
       height: 500px;
       border-radius: 15px;
       box-shadow: -50px 50px 25px #00000081;
    }
 }
-/* End of Registration Form */

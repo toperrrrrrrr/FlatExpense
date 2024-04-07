@@ -1,22 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>FlatExpense</title>
+    <title>Register User</title>
+    <link rel="shortcut icon" href="/imgs/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-
-    <h1>Proof that the all users page is working</h1>
-    <ul>
-        <% users.forEach(user => { %>
-            <li><%= user.user_name %></li>
-        <% }); %>
-    </ul>
-
-
-    <a href="/user/delete"><button>delete</button></a>
-    <a href="/user/register"><button>Register</button></a>
-
+    <div class="h-100 d-flex align-items-center justify-content-center">
+        <div class="centered-container">
+            <h1>All Users:</h1>
+            <ul>
+                <% users.forEach(user=> { %>
+                    <li>
+                        <%= user.user_name %>
+                    </li>
+                    <% }); %>
+            </ul>
+            <a href="/user/delete"><button type="button" class="btn btn-primary" id="btnDeleteAllUsers">Delete
+                    All</button></a>
+            <a href="/user/register"><button type="button" class="btn btn-primary">Register</button></a>
+        </div>
+    </div>
+    <script src="../script/userRegister.js"></script>
+    <script src="../script/allUsers.js"></script>
+    <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
