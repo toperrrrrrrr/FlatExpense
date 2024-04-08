@@ -14,7 +14,7 @@ connection.connect((err) => {
       console.error("Error connecting to MySQL database: " + err.stack);
       return;
    }
-   console.log("Connected to MySQL database as id " + connection.threadId);
+   console.log("Connected to MySQL database as id  " + connection.threadId);
 });
 
 // Function to execute SQL queries
@@ -54,17 +54,27 @@ function checkIfUserExist(userName, callback) {
 // End of Users queries
 
 //Start of Food queries
-function createFood(foodName, foodDescription, foodPrice, foodLink) {
-   const query = "INSERT INTO USERS (user_name, user_password) values (?,?);";
-   executeQuery(query, [userName, userPassword], callback);
+function createFood(foodName, foodDescription, foodPrice, foodLink, callback) {
+   const query =
+      "INSERT INTO foodList (foodName, foodDescription, foodPrice, foodLink) VALUES (?,?,?,?);";
+   executeQuery(
+      query,
+      [foodName, foodDescription, foodPrice, foodLink],
+      callback
+   );
+}
+
+function outputAllFoods(callback) {
+   const query = "SELECT * FROM foodList";
+   executeQuery(query, [], callback);
 }
 
 // End of Food queries
-
 module.exports = {
    checkIfUserExist,
    createUser,
    outputAllUsers,
    deleteAllUsers,
    createFood,
+   outputAllFoods,
 };

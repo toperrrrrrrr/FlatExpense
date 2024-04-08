@@ -12,61 +12,36 @@
 
 <body>
 
-    <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#addFood">Add Item</button>
 
 
 
-    <div class="modal fade" id="addFood">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
-            <div class="modal-content">
-
-
-                <!-- Modal body -->
-                <div class="modal-body">
-                    <div class="container mt-3">
-                        <h2>Add New Food</h2>
-                        <p>Some instructions on how to add new foods</p>
-                        <form>
-                            <div class="row">
-                                <div class="col">
-                                    <label for="foodName">Item name:</label>
-                                    <input type="text" class="form-control" placeholder="Item name" name="foodName">
-                                </div>
-                                <div class="col">
-                                    <label for="foodPrice">Recipe price:</label>
-                                    <input type="text" class="form-control" placeholder="Price (optional)"
-                                        name="foodPrice">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <label for="foodDescription">Description:</label>
-                                    <textarea class="form-control" rows="3" id="foodDescription"
-                                        name="foodDescription"></textarea>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <label for="foodLink">link :</label>
-                                    <textarea class="form-control" rows="1" id="foodLink"
-                                        name="foodLink" placeholder="link"></textarea>
-                                </div>
-                            </div>
-                        </form>
+    <% if (foods.length===0) { %>
+        <p>No foods available.</p>
+        <% } else { %>
+            <% foods.forEach(food=> { %>
+                <div class="card col" style="width:400px">
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <%= food.foodName %>
+                        </h4>
+                        <p class="card-text">
+                            <%= food.foodDescription %>
+                        </p>
+                        <p class="card-text">
+                            <%= food.foodPrice %>
+                        </p>
+                        <a href="#">
+                            <%= food.foodLink %>
+                        </a>
+                        <h6>
+                            <%= food.foodRate %>
+                        </h6 class="card-text">
                     </div>
                 </div>
+                <% }); %>
 
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                </div>
+                    <% } %>
 
-            </div>
-        </div>
-    </div>
-
-    <script src="../script/userRegister.js"></script>
-    <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
