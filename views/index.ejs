@@ -11,27 +11,21 @@
 </head>
 
 <body>
-    <div>
-        <div class="container">
-            <div class="content">
-                <h3>This needs to be a grid of 2 column </h3>
-            </div>
-        </div>
-        <div class="container">
-            <div class="content greetings">
+    <div class="h-100 d-flex align-items-center justify-content-center">
+        <div class="centered-container d-flex flex-column justify-content-around">
+            <div class="forms">
                 <h1>Good <span id="ampm">----</span> <span id="currentUser"></span></h1>
                 <h1 id="time">----</h1>
                 <h1 id="date">----</h1>
-                <h1 id="clock">----</h1>
-            </div>
-        </div>
-        <div class="container">
-            <div class="content greetings">
-                <a href="/user/register"><button>Register</button></a>
+                <a href="/user/register"><button type="button" class="btn btn-secondary">Register</button></a>
+                <a href="/user/allusers"><button type="button" class="btn btn-secondary">All Users</button></a>
+                <a href="/foods"><button type="button" class="btn btn-secondary">Foods</button></a>
+                <a href="/foods/allFoods"><button type="button" class="btn btn-secondary">All Foods</button></a>
             </div>
         </div>
     </div>
-    <script src="/bootstrap/js/bootstrap.bundle.min.js"></script> 
+
+    <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="./script/vendor.js"></script>
     <script src="./script/scripts.js"></script>
 </body>

@@ -45,6 +45,7 @@ function deleteAllUsers(callback) {
    executeQuery(query, [], callback);
 }
 
+
 //not being used at the moment.
 function checkIfUserExist(userName, callback) {
    const query = "SELECT user_name FROM users where user_name = ?";
@@ -69,6 +70,12 @@ function outputAllFoods(callback) {
    executeQuery(query, [], callback);
 }
 
+
+function deleteAllFoods(callback) {
+   const query = "Delete FROM foodlist";
+   executeQuery(query, [], callback);
+}
+
 // End of Food queries
 module.exports = {
    checkIfUserExist,
@@ -77,4 +84,5 @@ module.exports = {
    deleteAllUsers,
    createFood,
    outputAllFoods,
+   deleteAllFoods,
 };

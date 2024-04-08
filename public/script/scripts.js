@@ -55,7 +55,7 @@ setInterval(checkAmPm, 1000);
 
 // This is responsible for checking if the day is AM or PM//
 
-balance.textContent = initialBal;
+
 usersList.textContent = usersnames;
 foods.textContent = foodslist;
 

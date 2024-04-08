@@ -1,3 +1,5 @@
 const btnDelete = document.getElementById("btnDeleteAllUsers");
+const btnDeleteFoods = document.querySelector("btnDelteFoods");
 
-btnDelete.addEventListener("click", alert("Users Deleted"));
+
+

@@ -13,7 +13,29 @@
 <body>
 
     <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#addFood">Add Item</button>
+    <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#deleteFoods">Delete
+        Items</button>
 
+
+    <div class="modal fade" id="deleteFoods">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+            <div class="modal-content">
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="container mt-3">
+                        <h2>Are You Sure You want to Delete All Foods?</h2>
+                        <p>reconsider</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="/foods/delete"><button type="button" class="btn btn-primary">Delete
+                            Foods</button></a>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Nope</button>
+                </div>
+                <!-- Modal footer -->
+            </div>
+        </div>
+    </div>
 
     <div class="modal fade" id="addFood">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
