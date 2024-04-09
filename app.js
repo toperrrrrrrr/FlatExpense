@@ -2,6 +2,7 @@ const express = require("express");
 const port = 8888;
 const app = express();
 const path = require("path");
+const os = require("os")
 
 const user = require("./routes/user"); //for navigating to the user route
 const foods = require("./routes/foods"); //for navigating to the user route
@@ -41,3 +42,4 @@ app.use((err, req, res, next) => {
 app.use((req, res, next) => {
    res.status(404).render("404"); //calls the 404.ejs on the views folder
 });
+

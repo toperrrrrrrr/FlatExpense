@@ -9,9 +9,9 @@ const connection = mysql.createConnection({
    database: process.env.DATABASE,
 });
 
-connection.connect((err) => {
-   if (err) {
-      console.error("Error connecting to MySQL database: " + err.stack);
+connection.connect((error) => {
+   if (error) {
+      console.error("Error connecting to MySQL database: " + error.stack);
       return;
    }
    console.log("Connected to MySQL database as id  " + connection.threadId);
@@ -45,7 +45,6 @@ function deleteAllUsers(callback) {
    executeQuery(query, [], callback);
 }
 
-
 //not being used at the moment.
 function checkIfUserExist(userName, callback) {
    const query = "SELECT user_name FROM users where user_name = ?";
@@ -69,7 +68,6 @@ function outputAllFoods(callback) {
    const query = "SELECT * FROM foodList";
    executeQuery(query, [], callback);
 }
-
 
 function deleteAllFoods(callback) {
    const query = "Delete FROM foodlist";
