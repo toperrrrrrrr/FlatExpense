@@ -1,5 +1,9 @@
 NOTES TO SELF
 
+Work on contributions page, 
+
+make it so that it is possible to delete one record base on ID. 
+
 404.ejs
 This page needs to be updated and make the layout more responsive
 
@@ -44,3 +48,7 @@ restructure the directories, separate the frontend to back end and the shared fi
 
 
 Prevent form and backend calls to go off whenever the page is reloaded.
+
+Learn how to create sessions
+Authentications
+

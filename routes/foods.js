@@ -52,5 +52,18 @@ router.get("/delete", (req, res) => {
    });
 });
 
+router.get("/delete/:id", (req, res) => {
+   const ids = req.params.id
+   database.deleteAllFoods(ids, (error, result) => {
+      if (error) {
+         // Pass the error to the error handling middleware or handle it here
+         res.status(500).send("Error Deleting Foods " + error);
+         return;
+      }
+      console.log("Foods Deleted");
+      res.redirect("/foods/allFoods");
+   });
+});
+
 
 module.exports = router;

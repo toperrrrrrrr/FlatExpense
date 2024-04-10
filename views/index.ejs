@@ -11,44 +11,43 @@
 </head>
 
 <body>
-   
-            <div class="forms">
-                <h6>Good <span id="ampm">----</span> <span id="currentUser"></span></h6>
-                <h4>Welcome Back!</h4>
 
-                <div class="card" style="background-color: aquamarine;">
-                    <h6>Group Balance:</h6>
-                    <h1>P5000</h1>
-                </div>
+    <%- include('partials/partials-nav-bar.ejs') %>
+    
+        <div class="forms">
+            <h6>Good <span id="ampm">----</span> <span id="currentUser"></span></h6>
+            <h4>Welcome Back!</h4>
 
-                <div class=" justify-content-center align-items-center col" style="background-color: gray;">
-                    <div class="row">what</div>
-                    <div class="row">??</div>
-
-                </div>
-                <h6>Recent Transactions Balance:</h6>
-                <div class="card" style="background-color: aquamarine;">
-                    <h4>Noriel Lacsina</h4>
-                    <h5>Share</h5>
-                    <h5>500</h5>
-                    <h5>11-27-98</h5>
-                </div>
-
-                <h1 id="time">----</h1>
-                <h1 id="date">----</h1>
-                <a href="/user/register"><button type="button" class="btn btn-secondary">Register</button></a>
-                <a href="/user/allusers"><button type="button" class="btn btn-secondary">All Users</button></a>
-                <a href="/foods"><button type="button" class="btn btn-secondary">Foods</button></a>
-                <a href="/foods/allFoods"><button type="button" class="btn btn-secondary">All Foods</button></a>
+            <div class="card" style="background-color: aquamarine;">
+                <h6>Group Balance:</h6>
+                <h1>P5000</h1>
             </div>
-     
+
+            <div class=" justify-content-center align-items-center col" style="background-color: gray;">
+                <div class="row">what</div>
+                <div class="row">??</div>
+
+            </div>
+            <h6>Recent Transactions Balance:</h6>
+            <div class="card" style="background-color: aquamarine;">
+                <h4>Noriel Lacsina</h4>
+                <h5>Share</h5>
+                <h5>500</h5>
+                <h5>11-27-98</h5>
+            </div>
+
+            <h1 id="time">----</h1>
+            <h1 id="date">----</h1>
+
+        </div>
+
         <div class="btn cicrcleButton">Add</div>
 
 
 
-    <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="./script/vendor.js"></script>
-    <script src="./script/scripts.js"></script>
+        <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="./script/vendor.js"></script>
+        <script src="./script/scripts.js"></script>
 </body>
 
 </html>

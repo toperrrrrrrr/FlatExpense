@@ -69,12 +69,14 @@ function outputAllFoods(callback) {
    executeQuery(query, [], callback);
 }
 
-function deleteAllFoods(callback) {
-   const query = "Delete FROM foodlist";
-   executeQuery(query, [], callback);
+function deleteAllFoods(id, callback) {
+   const query = "Delete FROM foodlist where foodID = ?";
+   executeQuery(query, [id], callback);
 }
 
 // End of Food queries
+
+
 module.exports = {
    checkIfUserExist,
    createUser,

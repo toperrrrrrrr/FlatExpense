@@ -11,36 +11,41 @@
 </head>
 
 <body>
+    <%- include('../partials/partials-nav-bar.ejs') %>
 
 
-
-
-    <% if (foods.length===0) { %>
-        <p>No foods available.</p>
-        <% } else { %>
-            <% foods.forEach(food=> { %>
-                <div class="card col" style="width:400px">
-                    <div class="card-body">
-                        <h4 class="card-title">
-                            <%= food.foodName %>
-                        </h4>
-                        <p class="card-text">
-                            <%= food.foodDescription %>
-                        </p>
-                        <p class="card-text">
-                            <%= food.foodPrice %>
-                        </p>
-                        <a href="#">
-                            <%= food.foodLink %>
-                        </a>
-                        <h6>
-                            <%= food.foodRate %>
-                        </h6 class="card-text">
-                    </div>
-                </div>
-                <% }); %>
-                    <% } %>
-
+        <div class="container-fluid mt-3">
+            <div class="row">
+                <% if (foods.length===0) { %>
+                    <p>No foods available.</p>
+                    <% } else { %>
+                        <% foods.forEach(food=> { %>
+                            <div class="col p-3 text-white">
+                                <div class="card col" style="width:400px">
+                                    <div class="card-body">
+                                        <h4 class="card-title">
+                                            <%= food.foodName %>
+                                        </h4>
+                                        <p class="card-text">
+                                            <%= food.foodDescription %>
+                                        </p>
+                                        <p class="card-text">
+                                            <%= food.foodPrice %>
+                                        </p>
+                                        <a href="#">
+                                            <%= food.foodLink %>
+                                        </a>
+                                        <h6>
+                                            <%= food.foodRate %>
+                                        </h6 class="card-text">
+                                        <a href="/foods/delete/<%= food.foodID %>"><button>Delete</button></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <% }); %>
+                                <% } %>
+            </div>
+        </div>
 </body>
 
 </html>
