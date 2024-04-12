@@ -36,8 +36,12 @@ function createUser(userName, userPassword, callback) {
 }
 
 function outputAllUsers(callback) {
-   const query = "SELECT user_name FROM users";
+   const query = "SELECT * FROM users";
    executeQuery(query, [], callback);
+}
+function deleteUserId(id, callback) {
+   const query = "Delete FROM users where user_id = ?";
+   executeQuery(query, [id], callback);
 }
 
 function deleteAllUsers(callback) {
@@ -76,6 +80,14 @@ function deleteAllFoods(id, callback) {
 
 // End of Food queries
 
+//Start of contributions Queries
+
+function addContribution(userID, amount, callback) {
+   const query = " INSERT INTO CONTRIBUTIONS (user_id, amount) values (?,?)";
+   executeQuery(query, [userID, amount], callback);
+}
+
+//Endof contributions Queries
 
 module.exports = {
    checkIfUserExist,
@@ -85,4 +97,6 @@ module.exports = {
    createFood,
    outputAllFoods,
    deleteAllFoods,
+   deleteUserId,
+   addContribution,
 };

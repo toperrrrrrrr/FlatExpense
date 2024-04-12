@@ -8,6 +8,8 @@
                     <li>
                         <%= user.user_name %>
                     </li>
+
+                    <a href="/user/delete/<%= user.user_id %>"><button>Delete <%= user.user_id %></button></a>
                     <% }); %>
             </ul>
             <a href="/user/delete"><button type="button" class="btn btn-primary" id="btnDeleteAllUsers">Delete
@@ -17,5 +19,5 @@
     </div>
 
 
-    
+
     <%- include('../partials/partials-main-body-bottom.ejs') %>

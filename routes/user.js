@@ -6,6 +6,10 @@ const bodyParser = require("body-parser"); // Middleware to parse JSON request b
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: false }));
 
+router.get("/", (req, res) => {
+   res.send("user main loaded");
+});
+
 // POST endpoint to receive data from client
 router.post("/checkUser", (req, res) => {
    const receivedData = req.body.clientData;
@@ -21,11 +25,7 @@ router.post("/checkUser", (req, res) => {
    });
    // Send a response back to the client
    res.json({ message: "exist" });
-   return; 
-});
-
-router.get("/", (req, res) => {
-   res.send("user main loaded");
+   return;
 });
 
 router
@@ -57,6 +57,19 @@ router.get("/allusers", (req, res) => {
    });
 });
 
+router.get("/delete/:id", (req, res) => {
+   const ids = req.params.id
+   database.deleteUserId(ids, (error, result) => {
+      if (error) {
+         // Pass the error to the error handling middleware or handle it here
+         res.status(500).send("Error Deleting User " + error);
+         return;
+      }
+      console.log(`User Deleted ${ids}`);
+      res.redirect("/user/allusers");
+   });
+});
+
 router.get("/delete", (req, res) => {
    database.deleteAllUsers((error, result) => {
       if (error) {
@@ -68,5 +81,7 @@ router.get("/delete", (req, res) => {
       res.redirect("/user/allusers");
    });
 });
+
+
 
 module.exports = router;
