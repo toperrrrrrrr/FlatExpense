@@ -1,0 +1,8 @@
+//Login
+mysql -u root -p 
+
+//Reset Database auto increment
+ALTER TABLE users AUTO_INCREMENT=1 
+
+
+select CONTRIBUTIONS.id, users.user_name, contributions.amount from CONTRIBUTIONS inner join users on CONTRIBUTIONS.user_id=users.user_id;

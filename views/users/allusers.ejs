@@ -3,15 +3,28 @@
     <div class="h-100 d-flex align-items-center justify-content-center">
         <div class="centered-container">
             <h1>All Users:</h1>
-            <ul>
-                <% users.forEach(user=> { %>
-                    <li>
-                        <%= user.user_name %>
-                    </li>
-
-                    <a href="/user/delete/<%= user.user_id %>"><button>Delete <%= user.user_id %></button></a>
-                    <% }); %>
-            </ul>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% users.forEach(user=> { %>
+                        <tr>
+                            <td>
+                                <%= user.user_id %>
+                            </td>
+                            <td>
+                                <%= user.user_name %>
+                            </td>
+                            <td><a href="/user/delete/<%= user.user_id %>"><button>Delete</button></a></td>
+                        </tr>
+                        <% }); %>
+                </tbody>
+            </table>
             <a href="/user/delete"><button type="button" class="btn btn-primary" id="btnDeleteAllUsers">Delete
                     All</button></a>
             <a href="/user/register"><button type="button" class="btn btn-primary">Register</button></a>

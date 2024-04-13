@@ -33,6 +33,21 @@ body {
    margin-top: 10px;
 }
 
+.prevent-select {
+   -webkit-user-select: none;
+   /* Safari */
+   -ms-user-select: none;
+   /* IE 10 and IE 11 */
+   user-select: none;
+   /* Standard syntax */
+}
+
+.sticky {
+   position: sticky;
+   top:0;
+   z-index: 999;
+ }
+
 /* On screens that are 992px or less, set the background color to blue */
 @media screen and (max-width: 992px) {
    body {
