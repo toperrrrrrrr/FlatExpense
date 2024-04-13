@@ -1,5 +1,5 @@
 const express = require("express");
-var database = require("../database");
+const database = require("../database");
 const router = express.Router();
 const bodyParser = require("body-parser");
 
@@ -7,13 +7,37 @@ router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: false }));
 
 router.get("/", (req, res) => {
-   database.outputAllUsers((error, result) => {
-      if (error) {
-         res.status(500).send("Error Fetching files " + error);
+   let users, total, table;
+
+   database.outputAllUsers((error1, result1) => {
+      if (error1) {
+         res.status(500).send("Error with Query 1 Fetching files " + error1);
          return;
       }
-      console.log("Users LOADED");
-      res.render("contributions/contributions", { users: result });
+      users = result1;
+   });
+
+   database.outputContribTable((error3, result3) => {
+      if (error3) {
+         res.status(500).send("Error with Query 3 Fetching files " + error3);
+         return;
+      }
+      table = result3;
+   });
+
+
+   database.showSumContribution((error2, result2) => {
+      if (error2) {
+         res.status(500).send("Error with Query 2 Fetching files " + error2);
+         return;
+      }
+      total = result2;
+
+      res.render("contributions/contributions", {
+         users: users,
+         total: total,
+         table: table,
+      });
    });
 });
 

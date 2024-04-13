@@ -87,6 +87,16 @@ function addContribution(userID, amount, callback) {
    executeQuery(query, [userID, amount], callback);
 }
 
+function showSumContribution(callback) {
+   const query = "SELECT SUM(amount) as Total from contributions";
+   executeQuery(query, [], callback);
+}
+
+function outputContribTable(callback) {
+   const query =
+      "select CONTRIBUTIONS.id, users.user_name, contributions.amount from CONTRIBUTIONS inner join users on CONTRIBUTIONS.user_id=users.user_id;";
+   executeQuery(query, [], callback);
+}
 //End of contributions Queries
 
 module.exports = {
@@ -99,4 +109,6 @@ module.exports = {
    deleteAllFoods,
    deleteUserId,
    addContribution,
+   showSumContribution,
+   outputContribTable,
 };
