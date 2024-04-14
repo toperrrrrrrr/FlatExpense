@@ -1,10 +1,6 @@
-const express = require("express");
-const database = require("../database");
-const router = express.Router();
-const bodyParser = require("body-parser");
-
-router.use(bodyParser.json());
-router.use(bodyParser.urlencoded({ extended: false }));
+var database = require("../database");
+const { createRouter } = require("./helper");
+const router = createRouter();
 
 router.get("/", (req, res) => {
    let users, total, table;
