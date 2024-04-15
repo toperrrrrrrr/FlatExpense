@@ -27,22 +27,3 @@ function checkEmpty(event) {
       alert("Username Saved");
    }
 }
-
-// not used at the moment. I will get back to this next time to validate data before sending it to the back end
-function checkIfUserExists() {
-   dataToSend = valUsername;
-   fetch("/user/checkUser", {
-      method: "POST",
-      headers: {
-         "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ data: dataToSend }),
-   })
-      .then((response) => response.json())
-      .then((data) => {
-         usernameFromDB = data;
-      })
-      .catch((error) => {
-         console.error("Error sending data:", error);
-      });
-}

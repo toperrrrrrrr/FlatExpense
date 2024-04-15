@@ -8,7 +8,6 @@ function createRouter() {
 
     router.use(bodyParser.json());
     router.use(bodyParser.urlencoded({ extended: false }));
-
     return router;
 }
 

@@ -1,10 +1,8 @@
 <div class="centered-container container-fluid overflow-auto" style="scrollbar-width:none;">
     <h5>Remaining Balance: <% total.forEach(total=> { %>
-
-        <%= total.Total %>
-
-            <% }); %>
-</h5>
+            <%= total.Total %>
+                <% }); %>
+    </h5>
     <h1> Add New contributions</h1>
     <form action="/contributions/addContributions" method="post">
         <div class="row">
