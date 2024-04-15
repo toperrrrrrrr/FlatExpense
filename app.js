@@ -45,10 +45,9 @@ app.get("/", (req, res) => {
          return;
       }
       users = user;
-      
+
       res.render("index", { table: tables, total: totals, users: users });
    });
-   
 });
 
 //These are for checking whether the server can connect to the PORT

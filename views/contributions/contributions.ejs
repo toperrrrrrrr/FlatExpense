@@ -1,3 +1,8 @@
+<%- include('../partials/partials-head.ejs') %>
+
+
+
+
 <div class="centered-container container-fluid overflow-auto" style="scrollbar-width:none;">
     <h5>Remaining Balance: <% total.forEach(total=> { %>
             <%= total.Total %>
@@ -57,3 +62,5 @@
     </div>
 
 </div>
+
+<%- include('../partials/partials-main-body-bottom.ejs') %>
