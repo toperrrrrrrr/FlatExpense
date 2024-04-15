@@ -1,29 +1,36 @@
-<%- include('../partials/partials-main-body-top.ejs') %>
+<div class="centered-container container-fluid overflow-auto" style="scrollbar-width:none;">
+    <h5>Remaining Balance: <% total.forEach(total=> { %>
 
-    <div class="h-100 d-flex align-items-center justify-content-center">
-        <div class="centered-container container-fluid overflow-auto" style="scrollbar-width:none;">
-            <h1> Add New contributions</h1>
-            <form action="/contributions/addContributions" method="post">
-                <div class="row">
-                    <div class="col ">
-                        <label for="member">Member</label>
-                        <select class="form-select" aria-label="Member" name="user_id">
-                            <option selected>Select User</option>
-                            <% users.forEach(user=> { %>
-                                <option value="<%= user.user_id%>">
-                                    <%= user.user_name %>
-                                </option>
-                                <% }); %>
-                        </select>
-                    </div>
-                    <div class="col">
-                        <label for="Amount">Amount:</label>
-                        <input type="text" class="form-control" placeholder="Amount" name="amount">
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-primary">Save</button>
-            </form>
-            <div class="table-responsive mt-3">
+        <%= total.Total %>
+
+            <% }); %>
+</h5>
+    <h1> Add New contributions</h1>
+    <form action="/contributions/addContributions" method="post">
+        <div class="row">
+            <div class="col ">
+                <label for="member">Member</label>
+                <select class="form-select" aria-label="Member" name="user_id" id="user_id">
+                    <option selected>Select User</option>
+                    <% users.forEach(user=> { %>
+                        <option value="<%= user.user_id%>">
+                            <%= user.user_name %>
+                        </option>
+                        <% }); %>
+                </select>
+            </div>
+            <div class="col">
+                <label for="Amount">Amount:</label>
+                <input type="text" class="form-control" placeholder="Amount" id="user_amount" name="amount">
+            </div>
+        </div>
+        <button type="submit" id="saveAmount" class="btn btn-primary">Save</button>
+    </form>
+    <div class="table-responsive mt-3">
+
+        <% if (table.length===0) {%>
+            <p>No data found</p>
+            <% } else {%>
                 <table class="table table-striped" style="height: inherit;">
                     <thead class="table-dark">
                         <tr>
@@ -48,12 +55,7 @@
                             <% }); %>
                     </tbody>
                 </table>
-            </div>
-            <% total.forEach(total=> { %>
-
-                <%= total.Total %>
-
-                    <% }); %>
-        </div>
+                <% } %>
     </div>
-    <%- include('../partials/partials-main-body-bottom.ejs') %>
+
+</div>

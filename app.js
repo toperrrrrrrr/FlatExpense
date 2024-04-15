@@ -5,7 +5,7 @@ const path = require("path");
 const user = require("./routes/user"); //for navigating to the user route
 const foods = require("./routes/foods"); //for navigating to the user route
 const contrib = require("./routes/contributions"); //for navigating to the user route
-const admin = require("./routes/adminpanel"); //for navigating to the user route
+const cont = require("./routes/index-contrib");
 
 app.use(express.json()); //This is responsible for getting access from the JSON file you send through the BODY of your website.
 app.use(express.static(path.join(__dirname, "public"))); // Connection to my public assets. This includes HTMLs.
@@ -19,12 +19,36 @@ app.use(
 app.use("/user", user);
 app.use("/foods", foods);
 app.use("/contributions", contrib);
-app.use("/admin", admin);
 
 //Loading Main Page
 app.get("/", (req, res) => {
    console.log("Main Page Loaded");
-   res.render("index");
+   let tables, totals, users;
+   cont.callShowTable((err, table) => {
+      if (err) {
+         res.status(500).send("Error fetching table: " + err);
+         return;
+      }
+      tables = table;
+   });
+   cont.callShowSum((err, total) => {
+      if (err) {
+         res.status(500).send("Error fetching table: " + err);
+         return;
+      }
+      totals = total;
+   });
+
+   cont.callShowUsers((err, user) => {
+      if (err) {
+         res.status(500).send("Error fetching table: " + err);
+         return;
+      }
+      users = user;
+      
+      res.render("index", { table: tables, total: totals, users: users });
+   });
+   
 });
 
 //These are for checking whether the server can connect to the PORT

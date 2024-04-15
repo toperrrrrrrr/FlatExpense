@@ -1,10 +1,9 @@
-var database = require("../database");
+const database = require("../database");
 const { createRouter } = require("./helper");
 const router = createRouter();
 
 router.get("/", (req, res) => {
    let users, total, table;
-
    database.outputAllUsers((error1, result1) => {
       if (error1) {
          res.status(500).send("Error with Query 1 Fetching files " + error1);
@@ -12,7 +11,6 @@ router.get("/", (req, res) => {
       }
       users = result1;
    });
-
    database.outputContribTable((error3, result3) => {
       if (error3) {
          res.status(500).send("Error with Query 3 Fetching files " + error3);
@@ -20,15 +18,12 @@ router.get("/", (req, res) => {
       }
       table = result3;
    });
-
-
    database.showSumContribution((error2, result2) => {
       if (error2) {
          res.status(500).send("Error with Query 2 Fetching files " + error2);
          return;
       }
       total = result2;
-
       res.render("contributions/contributions", {
          users: users,
          total: total,
@@ -36,7 +31,6 @@ router.get("/", (req, res) => {
       });
    });
 });
-
 router.post("/addContributions", (req, res) => {
    const { user_id, amount } = req.body;
    database.addContribution(user_id, amount, (error, result) => {
@@ -45,8 +39,7 @@ router.post("/addContributions", (req, res) => {
          return;
       }
       console.log(`User ${user_id}'s contribution, amount: ${amount}`);
-      res.redirect("/contributions/");
+      res.redirect("/");
    });
 });
-
 module.exports = router;

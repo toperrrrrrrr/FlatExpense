@@ -55,6 +55,10 @@ body {
    z-index: 999;
  }
 
+ .roundedDiv{
+   border-radius: 10px;
+ }
+
 /* On screens that are 992px or less, set the background color to blue */
 @media screen and (max-width: 992px) {
    body {
