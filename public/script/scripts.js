@@ -1,13 +1,3 @@
-const currentUser = "Noriel";
-
-var groupSet = "";
-
-var initialBal = 40000; //this should be initialized during the first use. The data should be saved to the database and pulled to be the value of this variable.
-var usersnames = ["Nori", "Norms", "Glo", "Kriselle"]; //This should also be pulled from the database
-
-
-//Check who uses the app
-currentUsers.textContent = currentUser;
 
 // This is responsible for checking if the day is AM or PM//
 function checkAmPm() {
@@ -56,7 +46,6 @@ setInterval(checkAmPm, 1000);
 // This is responsible for checking if the day is AM or PM//
 
 
-usersList.textContent = usersnames;
-foods.textContent = foodslist;
+
 
 

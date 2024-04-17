@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/partials-head.ejs') %>
+
+    <body>
+        <div class="h-100 d-flex align-items-center justify-content-center">
+            <div class="centered-container d-flex flex-column justify-content-around">
+                <form action="/user/login" method="post" class="form-control">
+                    <select class="form-group" name="user" id="user">
+                        <% users.forEach(user=>{ %>
+                            <option style="color:black ;" value="<%= user.user_name %>">
+                                <%= user.user_name %>
+                            </option>
+                            <% }) %>
+                    </select>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+            </div>
+        </div>
+    </body>
+
+</html>

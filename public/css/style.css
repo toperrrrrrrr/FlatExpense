@@ -3,6 +3,7 @@ body {
    font-family: "Helvetica Neue", sans-serif;
    height: 100%;
    background-color: #5282b1;
+   scrollbar-width: thin;
 }
 
 .centered-container {
@@ -41,7 +42,7 @@ body {
    user-select: none;
 }
 
-.selectEnable { 
+.selectEnable {
    -webkit-user-select: text;
    -khtml-user-select: text;
    -moz-user-select: text;
@@ -51,13 +52,13 @@ body {
 
 .sticky {
    position: sticky;
-   top:0;
+   top: 0;
    z-index: 999;
- }
+}
 
- .roundedDiv{
+.roundedDiv {
    border-radius: 10px;
- }
+}
 
 /* On screens that are 992px or less, set the background color to blue */
 @media screen and (max-width: 992px) {

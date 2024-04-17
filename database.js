@@ -77,11 +77,9 @@ function deleteAllFoods(id, callback) {
    const query = "DELETE FROM foodList WHERE foodID = ?";
    executeQuery(query, [id], callback);
 }
-
 // End of Food queries
 
 //Start of contributions Queries
-
 function addContribution(userID, amount, callback) {
    const query = " INSERT INTO CONTRIBUTIONS (user_id, amount) values (?,?)";
    executeQuery(query, [userID, amount], callback);
@@ -99,6 +97,11 @@ function outputContribTable(callback) {
 }
 //End of contributions Queries
 
+function addLoginRecord(loginName, callback) {
+   const query = "INSERT INTO LOGINS (login_name) values (?)";
+   executeQuery(query, [loginName], callback);
+}
+
 module.exports = {
    checkIfUserExist,
    createUser,
@@ -111,4 +114,5 @@ module.exports = {
    addContribution,
    showSumContribution,
    outputContribTable,
+   addLoginRecord
 };

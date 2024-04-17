@@ -20,10 +20,14 @@ app.use("/user", user);
 app.use("/foods", foods);
 app.use("/contributions", contrib);
 
+
 //Loading Main Page
 app.get("/", (req, res) => {
    console.log("Main Page Loaded");
-   let tables, totals, users;
+   let tables, totals, users, loggedUser;
+   
+   loggedUser = req.query.name
+
    cont.callShowTable((err, table) => {
       if (err) {
          res.status(500).send("Error fetching table: " + err);
@@ -46,9 +50,24 @@ app.get("/", (req, res) => {
       }
       users = user;
 
-      res.render("index", { table: tables, total: totals, users: users });
+      res.render("index", { table: tables, total: totals, users: users, loggedUser: loggedUser  });
    });
 });
+
+app.get("/log", (req, res) => {
+
+   cont.callShowUsers((err, user)=>{
+      if(err){
+         res.status(500).send("Error Fetching Table" + err)
+         return
+      }
+      res.render("./users/login", {users: user})
+   })
+
+
+
+})
+
 
 //These are for checking whether the server can connect to the PORT
 const serverListen = app.listen(port, () => {

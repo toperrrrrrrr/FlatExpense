@@ -52,4 +52,17 @@ router.get("/delete", (req, res) => {
    });
 });
 
+router.post("/login", (req, res) => {
+   const { user } = req.body;
+   database.addLoginRecord(user, (error, result) => {
+      if (error) {
+         console.log("something went wrong : " + error);
+         res.status(500).send(error);
+         return;
+      }
+      console.log("User info saved");
+      res.redirect(`/?name=${user}`);
+   });
+});
+
 module.exports = router;

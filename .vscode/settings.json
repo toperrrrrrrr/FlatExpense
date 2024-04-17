@@ -1,4 +1,20 @@
 {
-    "markdown.extension.print.theme": "dark",
-
+   "markdown.extension.print.theme": "dark",
+   "files.exclude": {
+      "**/.git": true,
+      "**/.svn": true,
+      "**/.hg": true,
+      "**/CVS": true,
+      "**/.DS_Store": true,
+      "**/Thumbs.db": true,
+      "**/node_modules": true,
+      "**/.vscode": true,
+      "**/.kanbn": true,
+      "**/readme.md": true,
+      "**/.gitignore": true,
+      "**/package-lock.json": true,
+      "**/.env": true,
+      "**/FlatExpense.code-workspace": true,
+      "**/package.json": true
+   }
 }
