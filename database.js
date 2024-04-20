@@ -102,6 +102,11 @@ function addLoginRecord(loginName, callback) {
    executeQuery(query, [loginName], callback);
 }
 
+function showLogRecords(callback) {
+   const query = "SELECT * FROM LOGINS";
+   executeQuery(query, [], callback);
+}
+
 module.exports = {
    checkIfUserExist,
    createUser,
@@ -114,5 +119,6 @@ module.exports = {
    addContribution,
    showSumContribution,
    outputContribTable,
-   addLoginRecord
+   addLoginRecord,
+   showLogRecords,
 };

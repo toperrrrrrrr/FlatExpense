@@ -65,4 +65,14 @@ router.post("/login", (req, res) => {
    });
 });
 
+router.get("/logsss", (req, res) => {
+   database.showLogRecords((error, result) => {
+      if (error) {
+         res.status(500).send("Something went wrong" + error);
+         return;
+      }
+      res.render("./users/logs", { tae: "tasmanian devil" });
+   });
+});
+
 module.exports = router;
