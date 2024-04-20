@@ -1,15 +1,15 @@
 html,
 body {
    font-family: "Helvetica Neue", sans-serif;
+   background-color: #f9f9f9;
    height: 100%;
-   background-color: #5282b1;
    scrollbar-width: thin;
 }
 
 .centered-container {
    background-color: #dfe1e5;
    width: 500px;
-   height: 500px;
+
    border-radius: 15px;
    box-shadow: -50px 50px 25px #00000081;
    padding: 20px;
@@ -20,6 +20,20 @@ body {
    width: 50px;
    height: 50px;
    border-radius: 100px;
+}
+
+.container-fluid {
+   padding: 10px;
+   padding-left: 30px;
+}
+
+.sidebar {
+   margin-top: 30px;
+   margin-bottom: 30px;
+   background-color: #222223;
+   border-radius: 15px;
+   height: auto;
+   padding: 20px;
 }
 
 .forms {
