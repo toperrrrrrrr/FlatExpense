@@ -71,7 +71,7 @@ router.get("/logsss", (req, res) => {
          res.status(500).send("Something went wrong" + error);
          return;
       }
-      res.render("./users/logs", { tae: "tasmanian devil" });
+      res.render("./users/logs", { logs: result });
    });
 });
 

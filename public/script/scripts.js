@@ -1,4 +1,3 @@
-
 // This is responsible for checking if the day is AM or PM//
 function checkAmPm() {
    var currentTime = new Date();
@@ -43,9 +42,13 @@ function checkAmPm() {
 checkAmPm();
 setInterval(checkAmPm, 1000);
 
-// This is responsible for checking if the day is AM or PM//
+function toggle() {
+   const btn = document.querySelector(".toggle-sidebar-btn");
+   if (btn) {
+      btn.addEventListener("click", () => {
+         document.body.classList.toggle("toggle-sidebar");
+      });
+   }
+}
 
-
-
-
-
+toggle();

@@ -1,1 +1,34 @@
-<%= tae %>
+<!DOCTYPE html>
+<html lang="en">
+
+
+<%- include('../partials/partials-main-body-top.ejs') %>
+
+    <body>
+
+        <h1>All Users:</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% logs.forEach( log=> { %>
+                    <tr>
+                        <td>
+                            <%= log.login_id %>
+
+                        </td>
+                        <td>
+                            <%= log.login_name %>
+
+                        </td>
+                    </tr>
+                    <% }); %>
+            </tbody>
+        </table>
+
+    </body>

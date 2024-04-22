@@ -27,14 +27,6 @@ body {
    padding-left: 30px;
 }
 
-.sidebar {
-   margin-top: 30px;
-   margin-bottom: 30px;
-   background-color: #222223;
-   border-radius: 15px;
-   height: auto;
-   padding: 20px;
-}
 
 .forms {
    margin: 80px;
@@ -99,3 +91,9 @@ body {
       box-shadow: -50px 50px 25px #00000081;
    }
 }
+
+
+.epal{
+   background-color: wheat;
+}
+
