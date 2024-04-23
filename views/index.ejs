@@ -17,10 +17,7 @@
 <body class="prevent-select">
     <%- include('partials/partials-nav-bar.ejs') %>
         <%- include('partials/partials-aside.ejs') %>
-
-
             <main id="main" class="main">
-
                 <div class="pagetitle">
                     <h3>Good <span id="ampm"> </span>
                         <%= loggedUser %> </span>
@@ -31,39 +28,77 @@
                             <li class="breadcrumb-item" id="time"></li>
                         </ol>
                     </nav>
-                </div><!-- End Page Title -->
+                </div>
+                <!-- End Page Title -->
 
                 <section class="section dashboard">
                     <div class="row">
-
                         <!-- Left side columns -->
                         <div class="col-lg-8">
                             <div class="row">
-                                <div class="col-xxl-4 col-md-6">
-                                    <div class="card info-card sales-card">
+                                <div class="col-xxl-6 col-md-6">
+                                    <div class="card info-card">
                                         <div class="card-body">
-                                            <h5 class="card-title">uHH</span></h5>
+                                            <h5 class="card-title">Running Balance: </h5>
+                                            <div class="d-flex align-items-center">
+                                                <div class="ps-3">
+                                                    <h1><span>₱</span>
+                                                        <% total.forEach(total=> { %>
+                                                            <%= total.Total %>
+                                                                <% }); %>
+                                                    </h1>
+                                                </div>
+                                            </div>
                                         </div>
+
                                     </div>
                                 </div>
-                                <div class="col-xxl-4 col-md-6">
-                                    <div class="card info-card sales-card">
+                                <div class="col-xxl-6 col-md-6">
+                                    <div class="card info-card">
                                         <div class="card-body">
-                                            <h5 class="card-title">uHH</span></h5>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xxl-4 col-md-6">
-                                    <div class="card info-card sales-card">
-                                        <div class="card-body">
-                                            <h5 class="card-title">uHH</span></h5>
+                                            <h5 class="card-title">Spent This Week: </h5>
+                                            <div class="d-flex align-items-center">
+                                                <div class="ps-3">
+                                                    <h1><span>₱</span>0</h1>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h5 class="card-title">uHH</span></h5>
+                                            <h5 class="card-title">Transactions:</h5>
+                                            <div class="table-responsive mt-3">
+                                                <% if (table.length===0) {%>
+                                                    <p>No data found</p>
+                                                    <% } else {%>
+                                                        <table class="table table-striped" style="height: inherit;">
+                                                            <thead class="table-dark">
+                                                                <tr>
+                                                                    <th>ID</th>
+                                                                    <th>Name</th>
+                                                                    <th>Amount</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <% table.forEach(table=> { %>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <%= table.id %>
+                                                                        </td>
+                                                                        <td>
+                                                                            <%= table.user_name %>
+                                                                        </td>
+                                                                        <td>
+                                                                            <%= table.amount%>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <% }); %>
+                                                            </tbody>
+                                                        </table>
+                                                        <% } %>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -71,7 +106,30 @@
 
                                     <div class="card">
                                         <div class="card-body">
-                                            <h5 class="card-title">uHH</span></h5>
+                                            <h5 class="card-title">Add Contributions</h5>
+                                            <form action="/contributions/addContributions" method="post">
+                                                <div class="row">
+                                                    <div class="col ">
+                                                        <label for="member">Member</label>
+                                                        <select class="form-select" aria-label="Member" name="user_id"
+                                                            id="user_id">
+                                                            <option selected>Select User</option>
+                                                            <% users.forEach(user=> { %>
+                                                                <option value="<%= user.user_id%>">
+                                                                    <%= user.user_name %>
+                                                                </option>
+                                                                <% }); %>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col">
+                                                        <label for="Amount">Amount:</label>
+                                                        <input type="text" class="form-control" placeholder="Amount"
+                                                            id="user_amount" name="amount">
+                                                    </div>
+                                                </div>
+                                                <button type="submit" id="saveAmount"
+                                                    class="btn btn-primary">Save</button>
+                                            </form>
                                         </div>
                                     </div>
 
@@ -89,18 +147,23 @@
                             </div>
                             <div class="card">
                                 <div class="card-body pb-0">
-
-
                                 </div>
                             </div>
                             <div class="card">
                                 <div class="card-body pb-0">
-                                    <div style="min-height: 400px;"></div>
+                                    <div style="min-height: 400px;">
+                                        <h5 class="card-title">Announcements <span>| </span></h5>
+
+
+                                    </div>
                                 </div>
                             </div>
                             <div class="card">
-                                <div class="card-body pb-0">
+                                <div class="card-body pb-0 ">
                                     <h5 class="card-title">Uhh <span>| Uhh </span></h5>
+                                    <div
+                                        style="border-radius: 100% ; height: 400px; width: 400px; background-color: blueviolet;">
+                                    </div>
                                 </div>
                             </div>
                         </div>
