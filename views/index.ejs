@@ -9,9 +9,6 @@
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/bootstrap-icons/bootstrap-icons.css">
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/header.css">
-    <link rel="stylesheet" href="/css/sidebar.css">
-
 </head>
 
 <body class="prevent-select">
@@ -19,8 +16,8 @@
         <%- include('partials/partials-aside.ejs') %>
             <main id="main" class="main">
                 <div class="pagetitle">
-                    <h3>Good <span id="ampm"> </span>
-                        <%= loggedUser %> </span>
+                    <h3>Good <span id="ampm"></span>
+                        <%= loggedUser %></span>
                     </h3>
                     <nav>
                         <ol class="breadcrumb">
@@ -50,7 +47,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
                                 <div class="col-xxl-6 col-md-6">
@@ -65,6 +61,8 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <!-- START OF TABLE FOR THE TRANSACTIONS -->
                                 <div class="col-12">
                                     <div class="card">
                                         <div class="card-body">
@@ -102,8 +100,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12">
+                                <!-- END OF TABLE FOR THE TRANSACTIONS -->
 
+                                <div class="col-12">
                                     <div class="card">
                                         <div class="card-body">
                                             <h5 class="card-title">Add Contributions</h5>
@@ -145,10 +144,7 @@
                                     <h5 class="card-title">Uhh <span>| Uhh </span></h5>
                                 </div>
                             </div>
-                            <div class="card">
-                                <div class="card-body pb-0">
-                                </div>
-                            </div>
+
                             <div class="card">
                                 <div class="card-body pb-0">
                                     <div style="min-height: 400px;">
@@ -160,7 +156,7 @@
                             </div>
                             <div class="card">
                                 <div class="card-body pb-0 ">
-                                    <h5 class="card-title">Uhh <span>| Uhh </span></h5>
+                                    <h5 class="card-title ">Uhh <span>| Uhh </span></h5>
                                     <div
                                         style="border-radius: 100% ; height: 400px; width: 400px; background-color: blueviolet;">
                                     </div>
