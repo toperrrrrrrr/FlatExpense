@@ -1,0 +1,32 @@
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Transactions:</h5>
+        <div class="table-responsive mt-3">
+            <% if (table.length===0) {%>
+                <p>No data found</p>
+                <% } else {%>
+                    <table class="table table-striped" style="height: inherit;">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Name</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% table.forEach(table=> { %>
+                                <tr>
+
+                                    <td>
+                                        <%= table.user_name %>
+                                    </td>
+                                    <td>
+                                        <%= table.amount%>
+                                    </td>
+                                </tr>
+                                <% }); %>
+                        </tbody>
+                    </table>
+                    <% } %>
+        </div>
+    </div>
+</div>

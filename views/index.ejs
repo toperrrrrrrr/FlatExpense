@@ -55,74 +55,12 @@
 
                                 <!-- START OF TABLE FOR THE TRANSACTIONS -->
                                 <div class="col-12">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Transactions:</h5>
-                                            <div class="table-responsive mt-3">
-                                                <% if (table.length===0) {%>
-                                                    <p>No data found</p>
-                                                    <% } else {%>
-                                                        <table class="table table-striped" style="height: inherit;">
-                                                            <thead class="table-dark">
-                                                                <tr>
-                                                                    <th>ID</th>
-                                                                    <th>Name</th>
-                                                                    <th>Amount</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <% table.forEach(table=> { %>
-                                                                    <tr>
-                                                                        <td>
-                                                                            <%= table.id %>
-                                                                        </td>
-                                                                        <td>
-                                                                            <%= table.user_name %>
-                                                                        </td>
-                                                                        <td>
-                                                                            <%= table.amount%>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <% }); %>
-                                                            </tbody>
-                                                        </table>
-                                                        <% } %>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <%- include('dashboard/partials-transactions-table.ejs') %>
                                 </div>
                                 <!-- END OF TABLE FOR THE TRANSACTIONS -->
 
                                 <div class="col-12">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Add Contributions</h5>
-                                            <form action="/contributions/addContributions" method="post">
-                                                <div class="row">
-                                                    <div class="col ">
-                                                        <label for="member">Member</label>
-                                                        <select class="form-select" aria-label="Member" name="user_id"
-                                                            id="user_id">
-                                                            <option selected>Select User</option>
-                                                            <% users.forEach(user=> { %>
-                                                                <option value="<%= user.user_id%>">
-                                                                    <%= user.user_name %>
-                                                                </option>
-                                                                <% }); %>
-                                                        </select>
-                                                    </div>
-                                                    <div class="col">
-                                                        <label for="Amount">Amount:</label>
-                                                        <input type="text" class="form-control" placeholder="Amount"
-                                                            id="user_amount" name="amount">
-                                                    </div>
-                                                </div>
-                                                <button type="submit" id="saveAmount"
-                                                    class="btn btn-primary">Save</button>
-                                            </form>
-                                        </div>
-                                    </div>
-
+                                    <%- include('dashboard/partials-add-contributions.ejs') %>
                                 </div>
                             </div>
                         </div>
