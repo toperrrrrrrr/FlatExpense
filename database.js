@@ -73,7 +73,11 @@ function outputAllFoods(callback) {
    executeQuery(query, [], callback);
 }
 
-function deleteAllFoods(id, callback) {
+function deleteAllFoods(callback) {
+   const query = "DELETE FROM foodList";
+   executeQuery(query, [], callback);
+}
+function deleteFoodsID(id, callback) {
    const query = "DELETE FROM foodList WHERE foodID = ?";
    executeQuery(query, [id], callback);
 }
@@ -121,4 +125,5 @@ module.exports = {
    outputContribTable,
    addLoginRecord,
    showLogRecords,
+   deleteFoodsID,
 };
