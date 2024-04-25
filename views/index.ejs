@@ -3,104 +3,118 @@
 
 <%- include('partials/partials-head.ejs') %>
 
-<body class="prevent-select">
-    <%- include('partials/partials-nav-bar.ejs') %>
-        <%- include('partials/partials-aside.ejs') %>
-            <main id="main" class="main">
-                <div class="pagetitle">
-                    <h3>Good <span id="ampm"></span>
-                        <%= loggedUser || "Admin" %></span>
-                    </h3>
-                    <nav>
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item active" id="date"></li>
-                            <li class="breadcrumb-item" id="time"></li>
-                        </ol>
-                    </nav>
-                </div>
-                <!-- End Page Title -->
-                <section class="section dashboard">
-                    <div class="row">
-                        <!-- Left side columns -->
-                        <div class="col-lg-8">
-                            <div class="row">
-                                <div class="col-xxl-6 col-md-6">
-                                    <div class="card info-card">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Running Balance: </h5>
-                                            <div class="d-flex align-items-center">
-                                                <div class="ps-3">
-                                                    <h1><span>₱</span>
-                                                        <% total.forEach(total=> { %>
-                                                            <%= total.Total %>
-                                                                <% }); %>
-                                                    </h1>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xxl-6 col-md-6">
-                                    <div class="card info-card">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Spent This Week: </h5>
-                                            <div class="d-flex align-items-center">
-                                                <div class="ps-3">
-                                                    <h1><span>₱</span>0</h1>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- START OF TABLE FOR THE TRANSACTIONS -->
-                                <div class="col-12">
-                                    <%- include('dashboard/partials-transactions-table.ejs') %>
-                                </div>
-                                <!-- END OF TABLE FOR THE TRANSACTIONS -->
-
-                                <div class="col-12">
-                                    <%- include('dashboard/partials-add-contributions.ejs') %>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Left side columns -->
-
-                        <!-- Right side columns -->
-                        <div class="col-lg-4">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">Uhh <span>| Uhh </span></h5>
-                                </div>
-                            </div>
-
-                            <div class="card">
-                                <div class="card-body pb-0">
-                                    <div style="min-height: 400px;">
-                                        <h5 class="card-title">Announcements <span>| </span></h5>
-
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-body pb-0 ">
-                                    <h5 class="card-title ">Uhh <span>| Uhh </span></h5>
-                                    <div
-                                        style="border-radius: 100% ; height: 400px; width: 400px; background-color: blueviolet;">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Right side columns -->
+    <body class="prevent-select">
+        <%- include('partials/partials-nav-bar.ejs') %>
+            <%- include('partials/partials-aside.ejs') %>
+                <main id="main" class="main">
+                    <div class="pagetitle">
+                        <h3>Good <span id="ampm"></span>
+                            <%= loggedUser || "Admin" %></span>
+                        </h3>
+                        <nav>
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item active" id="date"></li>
+                                <li class="breadcrumb-item" id="time"></li>
+                            </ol>
+                        </nav>
                     </div>
-                </section>
-            </main>
+                    <!-- End Page Title -->
+                    <section class="section dashboard">
+                        <div class="row">
+                            <!-- Left side columns -->
+                            <div class="col-lg-8">
+                                <div class="row">
+                                    <div class="col-xxl-6 col-md-6">
+                                        <div class="card info-card">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Running Balance: </h5>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="ps-3">
+                                                        <h1><span>₱</span>
+                                                            <% total.forEach(total=> { %>
+                                                                <%= total.Total %>
+                                                                    <% }); %>
+                                                        </h1>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xxl-6 col-md-6">
+                                        <div class="card info-card">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Spent This Week: </h5>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="ps-3">
+                                                        <h1><span>₱</span>0</h1>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- START OF TABLE FOR THE TRANSACTIONS -->
+                                    <div class="col-12">
+                                        <%- include('dashboard/partials-transactions-table.ejs') %>
+                                    </div>
+                                    <!-- END OF TABLE FOR THE TRANSACTIONS -->
+
+                                    <div class="col-12">
+                                        <%- include('dashboard/partials-add-contributions.ejs') %>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Left side columns -->
+
+                            <!-- Right side columns -->
+                            <div class="col-lg-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Foods:</h5>
+                                        <div class="table-responsive mt-3">
+                                            <% if (foods.length===0) {%>
+                                                <p>No data found</p>
+                                                <% } else {%>
+                                                    <table class="table table-striped" style="height: inherit;">
+                                                        <thead class="table-dark">
+                                                            <tr>
+                                                                <th>Name</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <% foods.forEach(foods=> { %>
+                                                                <tr>
+
+                                                                    <td>
+                                                                        <%= foods.foodName %>
+                                                                    </td>
+
+                                                                </tr>
+                                                                <% }); %>
+                                                        </tbody>
+                                                    </table>
+                                                    <% } %>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-body pb-0 ">
+                                        <h5 class="card-title ">Uhh <span>| Uhh </span></h5>
+                                        <div
+                                            style="border-radius: 100% ; height: 400px; width: 400px; background-color: blueviolet;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Right side columns -->
+                        </div>
+                    </section>
+                </main>
 
 
-            <script src="/bootstrap/js/bootstrap.js"></script>
-            <script src="./script/vendor.js"></script>
-            <script src="./script/scripts.js"></script>
-</body>
+                <script src="/bootstrap/js/bootstrap.js"></script>
+                <script src="./script/vendor.js"></script>
+                <script src="./script/scripts.js"></script>
+    </body>
 
 </html>

@@ -30,10 +30,19 @@ function callShowUsers(callback) {
    });
 }
 
-
+function callFoods(callback) {
+   database.outputAllFoods((err, result) => {
+      if (err) {
+         callback(err, null);
+         return;
+      }
+      callback(null, result);
+   });
+}
 
 module.exports = {
    callShowTable,
    callShowSum,
    callShowUsers,
+   callFoods,
 };

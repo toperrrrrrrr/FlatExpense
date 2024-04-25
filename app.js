@@ -29,7 +29,7 @@ app.use("/contributions", contrib);
 //Loading Main Page
 app.get("/", (req, res) => {
    console.log("Main Page Loaded");
-   let tables, totals, users, loggedUser;
+   let tables, totals, users, loggedUser, foods;
 
    loggedUser = req.query.name;
 
@@ -47,6 +47,13 @@ app.get("/", (req, res) => {
       }
       totals = total;
    });
+   cont.callFoods((err, food) => {
+      if (err) {
+         res.status(500).send("Error fetching table: " + err);
+         return;
+      }
+      foods = food;
+   });
 
    cont.callShowUsers((err, user) => {
       if (err) {
@@ -59,6 +66,7 @@ app.get("/", (req, res) => {
          table: tables,
          total: totals,
          users: users,
+         foods: foods,
          loggedUser: loggedUser,
       });
    });
