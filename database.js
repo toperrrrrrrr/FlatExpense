@@ -96,7 +96,7 @@ function showSumContribution(callback) {
 
 function outputContribTable(callback) {
    const query =
-      "select CONTRIBUTIONS.id, users.user_name, contributions.amount from CONTRIBUTIONS inner join users on CONTRIBUTIONS.user_id=users.user_id;";
+      "select CONTRIBUTIONS.id, users.user_name, contributions.amount from CONTRIBUTIONS inner join users on CONTRIBUTIONS.user_id=users.user_id ORDER BY CONTRIBUTIONS.id ASC";
    executeQuery(query, [], callback);
 }
 //End of contributions Queries
