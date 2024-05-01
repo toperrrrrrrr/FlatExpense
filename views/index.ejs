@@ -99,9 +99,9 @@
                                 </div>
                                 <div class="card">
                                     <div class="card-body pb-0 ">
-                                        <h5 class="card-title ">Uhh <span>| Uhh </span></h5>
-                                        <div
-                                            style="border-radius: 100% ; height: 400px; width: 400px; background-color: blueviolet;">
+                                        <h5 class="card-title ">Let the wheel decide</h5>
+                                        <div class="roulette-container">
+                                            <div class="roulette"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -111,10 +111,66 @@
                     </section>
                 </main>
 
+                <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                        const wheelSize = 360;
+                        const numberOfSlots = 10;
+                        const slotAngle = 360 / numberOfSlots;
+                        const degrees = (180 - slotAngle) / 2;
+                        const roulette = document.querySelector('.roulette');
+                        const head = document.head;
 
+                        roulette.style.width = wheelSize + 'px';
+                        roulette.style.height = wheelSize + 'px';
+
+                        const afterNumeroStyle = document.createElement('style');
+                        afterNumeroStyle.id = 'afterNumero';
+                        head.appendChild(afterNumeroStyle);
+
+                        for (let i = 1; i <= numberOfSlots; i++) {
+                            const slot = document.createElement('div');
+                            slot.classList.add('slot', 'slot-' + i);
+                            const rotation = 'rotate(' + slotAngle * i + 'deg)';
+                            slot.style.transform = rotation;
+                            slot.style.borderBottomColor = getRandomColor();
+                            roulette.appendChild(slot);
+
+                            const slotBeforeStyle = document.createElement('style');
+                            slotBeforeStyle.textContent = `.slot-${i}::before { content: "${i}"; }`;
+                            afterNumeroStyle.appendChild(slotBeforeStyle);
+
+                            slot.setAttribute('data-content', i);
+                            slot.setAttribute('data-ancho', (wheelSize / 2) + 'px');
+                            slot.setAttribute('data-line', (wheelSize / 2) + 'px');
+                        }
+
+                        const slots = document.querySelectorAll('.slot');
+                        const slotHeight = Math.tan(degrees * Math.PI / 180) * (wheelSize / 2);
+                        slots.forEach(slot => {
+                            slot.style.borderBottomWidth = slotHeight + 'px';
+                            slot.style.borderRightWidth = (wheelSize / 2) + 'px';
+                            slot.style.borderLeftWidth = (wheelSize / 2) + 'px';
+                        });
+
+                        roulette.addEventListener('click', function () {
+                            roulette.classList.remove('spin');
+                            setTimeout(() => roulette.classList.add('spin'), 10);
+                        });
+
+                        function getRandomColor() {
+                            let color = '#';
+                            for (let i = 0; i < 6; i++) {
+                                color += Math.floor(Math.random() * 16).toString(16);
+                            }
+                            return color;
+                        }
+                    });
+
+                </script>
                 <script src="/bootstrap/js/bootstrap.js"></script>
                 <script src="./script/vendor.js"></script>
                 <script src="./script/scripts.js"></script>
+                <script src="./script/roulette.js"></script>
     </body>
 
 </html>
